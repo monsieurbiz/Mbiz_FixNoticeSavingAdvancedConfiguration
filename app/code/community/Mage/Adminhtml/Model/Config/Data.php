@@ -132,7 +132,17 @@ class Mage_Adminhtml_Model_Config_Data extends Varien_Object
                 /**
                  * Get field backend model
                  */
-                $backendClass = $fieldConfig->backend_model;
+
+                // FIX START =============================================================== 2013-07-31
+
+                // =============== ORIGINAL
+                //$backendClass = $fieldConfig->backend_model;
+
+                // ======== BY MONSIEUR BIZ
+                $backendClass = $fieldConfig ? $fieldConfig->backend_model : null;
+
+                // FIX END ============================================================================
+
                 if (!$backendClass) {
                     $backendClass = 'core/config_data';
                 }
